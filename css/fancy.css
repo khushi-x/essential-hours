@@ -1,110 +1,97 @@
-/* Always set the map height explicitly to define the size of the div
- * element that contains the map.
-
- creds to: https://developers.google.com/maps/documentation/javascript/examples/places-searchbox
- */
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-/* Optional: Makes the sample page fill the window. */
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+body {
+    background-image: url("https://papers.co/wallpaper/papers.co-sm47-pastel-purple-blur-gradation-1-wallpaper.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 2em;
+    font-family: "Verdana", serif;
 }
 
-* {
-    font-family: Roboto sans-serif;
-}
-
-.section {
-    overflow: hidden;
-    min-height: 300px;
-}
-
-a:hover {
-    color: #274472 ;
-    text-decoration: none !important;
+h1 {
+    font-family: "Verdana", serif;
+    font-size: 30px;
+    font-weight: bold;
+    color: #618dba;
+    background-color: rgba(250, 244, 165, 0.7);
+    padding: 10px;
 }
 
 a {
-    color: inherit !important;
+    color: #274472;
+    text-decoration: none;
 }
 
-#main-map-container {
-    margin: 25px 50px;
+a:hover {
+    text-decoration: none
 }
 
-#map {
-    height: 50vh;
+h2 {
+    color: #5eccc5;
+    font-weight: normal;
+    font-size: 20px;
 }
 
-/* MAP STUFF */
+#main-information {
+    padding: 50px;
 
-#description {
-    font-size: 15px;
-    font-weight: 300;
+}
+p {
+    font-size: 23px;
 }
 
-#infowindow-content .title {
-    font-weight: bold;
+ul {
+    font-size: 20px;
 }
 
-#infowindow-content {
-    display: none;
+h9{
+    font-size:13px;
+    color:grey;
 }
 
-#map #infowindow-content {
-    display: inline;
+.header {
+    padding: 25px 50px;
 }
 
-.pac-card {
-    margin: 10px 10px 0 0;
-    border-radius: 2px 0 0 2px;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    outline: none;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    background-color: #fff;
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
 }
 
-#pac-container {
-    padding-bottom: 12px;
-    margin-right: 12px;
+.col {
+    width: 150px;
+    padding: 0;
 }
 
-.pac-controls {
-    display: inline-block;
-    padding: 5px 11px;
+.citation-list {
+    padding: 25px 75px;
+    line-height: 40px;
 }
 
-.pac-controls label {
-    font-size: 13px;
-    font-weight: 300;
+.people-holder {
+    display: flex;
 }
 
-#pac-input {
-    background-color: #fff;
-    font-size: 16px;
-    font-weight: 300;
-    margin: 25px 25px;
-    padding: 0 15px 0 15px;
-    text-overflow: ellipsis;
-    width: 450px;
-    height: 35px;
+.person{
+    padding: 0;
 }
 
-#pac-input:focus {
-    border-color: #4d90fe;
+.person-name {
+    margin-bottom: 25px;
 }
 
-#title {
-    color: #fff;
-    background-color: #4d90fe;
-    font-size: 25px;
-    font-weight: 500;
-    padding: 6px 12px;
+.person-inner {
+    background: grey;
+    height: 100%;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    align-content: center;
 }
-#target {
-    width: 345px;
+
+.person-inner img {
+    margin-top: 10px;
+    margin-bottom: 30px;
 }

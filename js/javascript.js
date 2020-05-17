@@ -1,76 +1,23 @@
-const firebase = require("firebase");
-// Required for side-effects
-require("firebase/firestore");
-
 // Your web app's Firebase configuration
-var firebaseConfig = {
+// Initialize Firebase
+var config = {
     apiKey: "AIzaSyAjxFj4_JqT2xlit-uqfxHDSyJOzlZgFI0",
     authDomain: "test-1-7b3cd.firebaseapp.com",
     databaseURL: "https://test-1-7b3cd.firebaseio.com",
-    projectId: "test-1-7b3cd",
     storageBucket: "test-1-7b3cd.appspot.com",
-    messagingSenderId: "907937019023",
-    appId: "1:907937019023:web:4ec6df6d650417d42decfa"
 };
-// Initialize Firebase
-firebase.initializeApp({
-    apiKey: "AIzaSyAjxFj4_JqT2xlit-uqfxHDSyJOzlZgFI0",
-    authDomain: "test-1-7b3cd.firebaseapp.com",
-    projectId: "test-1-7b3cd",
-});
 
-var db=firebase.firestore();
-// Add a new document in collection "cities"
-db.collection("users").add({
-    first: "Ada",
-    last: "Lovelace",
-    born: 1815
+firebase.initializeApp(config);
+var database = firebase.database();
+
+var dedicatedLocations = []
+var dedicatedMarkers = []
+dedicatedLocations = firebase.database().ref('locations').orderByChild('placeID;');
+dedicatedLocations.on('value', function (snapshot) {
+    for (var plc in snapshot.val()) {
+        dedicatedLocations += plc;
+    }
 })
-    .then(function(docRef) {
-        console.log("Document written with ID: ", docRef.id);
-    })
-    .catch(function(error) {
-        console.error("Error adding document: ", error);
-    });
-/*
-$("#save").click(function() {
-    const starthour=document.querySelector("#add-mod-start").value;
-    const endhour=document.querySelector("#add-mod-end").value;
-    db.collection("locations").add({
-        Identification: localStorage.placeID,
-        Name: localStorage.placeName,
-        Address: localStorage.placeAddress,
-        Coordinates: localStorage.placeCoor,
-        ModStart: starthour,
-        ModEnd: endhour,
-
-    }).then(function () {
-        console.log("Document successfully written!");
-    })
-        .catch(function(error) {
-            // The document probably doesn't exist.
-            console.error("Error writing document: ", error);
-        });
-})
-
-const starthour=document.querySelector("#add-mod-start").value;
-const endhour=document.querySelector("#add-mod-end").value;
-const save=document.querySelector("#submit");
-save.addEventListener("click",function() {
-    db.collection("locations").set({
-        Identification: localStorage.placeID,
-        Name: localStorage.placeName,
-        Address: localStorage.placeAddress,
-        Coordinates: localStorage.placeCoor,
-
-
-    }).then(function() {
-
-        console.log("Document successfully written!");
-
-*/
-
-
 
 
 // This example adds a search box to a map, using the Google Place Autocomplete
@@ -115,25 +62,53 @@ function initAutocomplete() {
         $("#place-name").text(localStorage.placeName);
         $("#place-address").text(localStorage.placeAddress);
 
+        var modStart = firebase.database().ref('locations/' + localStorage.placeID + '/ModStart');
+        modStart.on('value', function (snapshot) {
+            modStart = snapshot.val();
+            console.log(modStart)
+            if (snapshot.val() !== null) {
+                $("#mod-start").text(modStart);
+            } else {
+                    $("#mod-start").text("");
+                }
+            })
+
+        var modEnd = firebase.database().ref('locations/' + localStorage.placeID + '/ModEnd');
+            modEnd.on('value', function (snapshot) {
+                modEnd = snapshot.val();
+                console.log(modEnd)
+                if (snapshot.val() !== null) {
+                    $("#mod-end").text(modEnd);
+                } else {
+                        $("#mod-end").text("")
+                    }
+                })
+
         if (places.length === 0) {
             return;
         }
 
-        geocoder.geocode({'placeId': localStorage.placeID}, function(results, status) {
-            if (status !== 'OK') {
-                window.alert('Geocoder failed due to: ' + status);
-                return;
-            }
+        // for (var location in dedicatedLocations) {
+        //     geocoder.geocode({'placeId': location}, function(results, status) {
+        //         if (status !== 'OK') {
+        //             console.log(location)
+        //             window.alert('Geocoder failed due to: ' + status);
+        //             return;
+        //         }
+        //
+        //         // Set the position of the marker using the place ID and location.
+        //
+        //         // Create a marker for each place.
+        //         dedicatedMarkers.push(new google.maps.Marker({
+        //             map: map,
+        //             icon: icon,
+        //             title: results[0].name,
+        //             position: results[0].geometry.location
+        //         }));
+        //     });
+        // }
+        // tbd , add markers from the list of stuff
 
-            map.setZoom(11);
-            map.setCenter(results[0].geometry.location);
-
-            // Set the position of the marker using the place ID and location.
-            marker.setPlace(
-                {placeId: localStorage.placeID, location: results[0].geometry.location});
-
-            marker.setVisible(true);
-        });
 
         // Clear out the old markers.
         markers.forEach(function(marker) {
@@ -176,3 +151,35 @@ function initAutocomplete() {
     });
 }
 
+function logHours(){
+    console.log('enter')
+     var starthour=document.querySelector("#add-mod-start").value;
+     var endhour=document.querySelector("#add-mod-end").value;
+     if (starthour !== null && endhour !== null) {
+        firebase.database().ref('locations/' + localStorage.placeID).set({
+            Identification: localStorage.placeID,
+            Name: localStorage.placeName,
+            Address: localStorage.placeAddress,
+            ModStart: starthour,
+            ModEnd: endhour,
+        });
+        console.log('done')
+     }
+
+}
+
+/*
+$("#save").click( function() {
+//    var starthour=document.querySelector("#add-mod-start").value;
+//   var endhour=document.querySelector("#add-mod-end").value;
+    firebase.database().ref('locations/' + localStorage.placeID).set({
+        Identification: localStorage.placeID,
+        Name: localStorage.placeName,
+        Address: localStorage.placeAddress,
+//        ModStart: starthour,
+//        ModEnd: endhour,
+    });
+    console.log('done')
+})
+
+*/
