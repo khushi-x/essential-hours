@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <title>Essential Hours</title>
+
+    <link href="css/mapmain.css" rel="stylesheet">
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-database.js"></script>
+
+    <script src="js/javascript.js"></script>
+</head>
+<body>
+
+<section class="navigation">
+    <div class="navigation-inner">
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="resources/logo.png" width="100px">   Essential Hours</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse navbarNav justify-content-end">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Map</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="creators">About Us</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index">COVID-19</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="citations">Works Cited</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</section>
+
+<section id="main-map-container">
+
+    <script>
+
+    </script>
+
+    <div id="map-container">
+        <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+        <div id="map"></div>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjxFj4_JqT2xlit-uqfxHDSyJOzlZgFI0&libraries=places&callback=initAutocomplete"></script>
+        <script> initAutocomplete(); </script>
+    </div>
+
+</section>
+
+<section id="store-info">
+    <div id="store-info-inner" class="row">
+        <div class="col store-info-col">
+            <h1>Location Information</h1>
+            <h6>Use the search box (top right) to locate a business/place to see if it has essential hours available.</h6>
+            <div id="maps-store-info">
+                <div id="place-name"></div>
+                <div id="place-address"></div>
+            </div>
+        </div>
+
+        <div class="col store-info-col">
+            <h1>Essential Hours</h1>
+            <h6>Modified hours for essential workers and those at risk.</h6>
+            <div id="mod-hours" class="row">
+                <div class="col-6">Open</div>
+                <div class="col-6">Close</div>
+                <div id="mod-start" class="col-6"></div>
+                <div id="mod-end" class="col-6"></div>
+            </div>
+        </div>
+
+        <div id="update-form" class="col store-info-col">
+            <h1>Add Hours</h1>
+            <h6>Help your neighbours by updating dedicated hours!</h6>
+            <div class="add-hours-form">
+                <label for="add-mod-start">Opening</label>
+                <input type="time" id="add-mod-start" name="store-start"
+                       min="00:00" max="11:59" required><br>
+                <label>Closing</label>
+                <input type="time" id="add-mod-end" name="store-end"
+                       min="12:00" max="23:59" required><br>
+                <button onclick="logHours()">Save</button>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- this is where we'll display the information for the store: name, location, current hours, modified hours -->
+</body>
+</html>
