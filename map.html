@@ -69,15 +69,18 @@
 <section id="store-info">
     <div id="store-info-inner" class="row">
         <div class="col store-info-col">
+            <div class="info-inner">
             <h1>Location Information</h1>
             <h6>Use the search box (top right) to locate a business/place to see if it has essential hours available.</h6>
             <div id="maps-store-info">
                 <div id="place-name"></div>
                 <div id="place-address"></div>
             </div>
+            </div>
         </div>
 
         <div class="col store-info-col">
+            <div class="info-inner">
             <h1>Essential Hours</h1>
             <h6>Modified hours will show up here if available, opening/closing hours correspond to the time below (military time).</h6>
             <div id="mod-hours" class="row">
@@ -87,10 +90,12 @@
                 <div id="mod-end" class="col-6"></div>
             </div>
         </div>
+        </div>
 
         <div id="update-form" class="col store-info-col">
+            <div class="info-inner">
             <h1>Add Hours</h1>
-            <h6>Notice that a place with modified hours isn't on here? Help out the community by logging in their (new) opening and closing hours with the form below!</h6>
+            <h6>Notice that a place with modified hours isn't on here? Help out the community by logging in their (new) opening and closing hours with the form below! <br><br></h6>
             <div class="add-hours-form">
                 <label for="add-mod-start">Opening</label>
                 <input type="time" id="add-mod-start" name="store-start"
@@ -100,6 +105,7 @@
                        min="12:00" max="23:59" required><br>
                 <button onclick="logHours()">Save</button>
             </div>
+        </div>
 
         </div>
     </div>

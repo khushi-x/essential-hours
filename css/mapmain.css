@@ -31,6 +31,10 @@ a {
     color: inherit !important;
 }
 
+.info-inner {
+    padding: 20px 40px;
+}
+
 #main-map-container {
     margin: 25px 50px;
 }
@@ -145,6 +149,3 @@ a {
     font-weight: bolder;
 }
 
-.store-info-col {
-    padding: 20px;
-}
