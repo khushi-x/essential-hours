@@ -1,0 +1,18 @@
+
+body,head {
+    background-color: #FFDF8A;
+    margin: 2em;
+}
+
+h1 {
+    font-style: italic;
+    color: #5eccc5;
+}
+
+h2 {
+    color: #5eccc5;
+}
+
+#main-information {
+    padding: 50px;
+}

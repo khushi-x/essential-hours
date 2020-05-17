@@ -1,0 +1,110 @@
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map.
+
+ creds to: https://developers.google.com/maps/documentation/javascript/examples/places-searchbox
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* Optional: Makes the sample page fill the window. */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    font-family: Roboto sans-serif;
+}
+
+.section {
+    overflow: hidden;
+    min-height: 300px;
+}
+
+a:hover {
+    color: #274472 ;
+    text-decoration: none !important;
+}
+
+a {
+    color: inherit !important;
+}
+
+#main-map-container {
+    margin: 25px 50px;
+}
+
+#map {
+    height: 50vh;
+}
+
+/* MAP STUFF */
+
+#description {
+    font-size: 15px;
+    font-weight: 300;
+}
+
+#infowindow-content .title {
+    font-weight: bold;
+}
+
+#infowindow-content {
+    display: none;
+}
+
+#map #infowindow-content {
+    display: inline;
+}
+
+.pac-card {
+    margin: 10px 10px 0 0;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+}
+
+#pac-container {
+    padding-bottom: 12px;
+    margin-right: 12px;
+}
+
+.pac-controls {
+    display: inline-block;
+    padding: 5px 11px;
+}
+
+.pac-controls label {
+    font-size: 13px;
+    font-weight: 300;
+}
+
+#pac-input {
+    background-color: #fff;
+    font-size: 16px;
+    font-weight: 300;
+    margin: 25px 25px;
+    padding: 0 15px 0 15px;
+    text-overflow: ellipsis;
+    width: 450px;
+    height: 35px;
+}
+
+#pac-input:focus {
+    border-color: #4d90fe;
+}
+
+#title {
+    color: #fff;
+    background-color: #4d90fe;
+    font-size: 25px;
+    font-weight: 500;
+    padding: 6px 12px;
+}
+#target {
+    width: 345px;
+}

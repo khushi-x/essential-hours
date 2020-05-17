@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* SECTION - NAVBAR */
+#navbar {
+    padding: 3% 5%;
+    z-index: 15;
+}
+
+.navbar {
+    overflow: hidden;
+    background: transparent;
+    display: inline;
+}
+
+.navbar-brand {
+    padding-left: 50px;
+}
+
+.actual-nav {
+    display:inline-block;
+}
+
+.nav-item {
+    list-style-type: none;
+    padding: 0 15px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: black;
+    font-size: 1.08em;
+    line-height: 1.5em;
+    width: 100px;
+}
+
+#nav-inner {
+    position: relative;
+    display: inline;
+}
